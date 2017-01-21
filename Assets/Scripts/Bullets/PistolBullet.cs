@@ -6,9 +6,11 @@ using MarchingBytes;
 public class PistolBullet : MonoBehaviour {
 
     public float LifeTime = 5.0f;
-    float startTime;
-    public TrailRenderer trail;
 
+    public TrailRenderer trail;
+    public GameObject sprite;
+
+    bool otherDestroyed;
     
     public void OnDisable()
     {
@@ -20,19 +22,29 @@ public class PistolBullet : MonoBehaviour {
     public void OnEnable()
     {
         Debug.Log("Spawn Called");
-        startTime = Time.time;
-        //trail.time = 1;
+
+        otherDestroyed = false;
+
+        sprite.SetActive(true);
+        GetComponent<CircleCollider2D>().enabled = true;
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        sprite.SetActive(false);
+        GetComponent<CircleCollider2D>().enabled = false;
 
         UnityTimer.Instance.CallAfterDelay(() =>
         {
             EasyObjectPool.instance.ReturnObjectToPool(this.gameObject);
-        }, LifeTime);
+        }, 1.0f);
+
     }
 
 
-    
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 	}
 }
