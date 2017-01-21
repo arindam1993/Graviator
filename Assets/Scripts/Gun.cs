@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour {
 	
     public void SetAimDirection(Vector2 direction)
     {
-        if(direction.magnitude < 0.1)
+        if (direction.magnitude < 0.5) return;
         transform.up = Vector3.Normalize(direction);
     }
 }

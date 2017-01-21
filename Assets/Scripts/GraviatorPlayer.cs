@@ -21,7 +21,8 @@ public class GraviatorPlayer : MonoBehaviour {
     public float FuelRegenRate;
     public float currentFuel;
 
-
+    //Gun
+    public Gun gun;
 
     //Private member variables
     Rigidbody2D rbd;
@@ -56,6 +57,7 @@ public class GraviatorPlayer : MonoBehaviour {
             Thrust(thrustMag);
         }
 
+        gun.SetAimDirection(Actions.Aim.Vector);
 	}
 
 
@@ -70,7 +72,6 @@ public class GraviatorPlayer : MonoBehaviour {
     {
         rbd.AddRelativeForce(Vector3.up * MoveSpeed * thrust, ForceMode2D.Force);
         currentFuel -= FuelSpendRate * thrust * Time.deltaTime;
-
     }
 
 
