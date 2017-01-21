@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundManager : MonoBehaviour {
+public class MusicManager : MonoBehaviour {
 
-	public static SoundManager instance = null;
+	public static MusicManager instance = null;
 
 	void Awake () {
 		if (instance == null) {
@@ -26,41 +26,7 @@ public class SoundManager : MonoBehaviour {
 		efxSource.Stop (); 
 		efxSource.Play (); 
 	}
-
-	/** To Use: 
-	 * SoundManager.playSingleFX(gameObject.GetComponent<AudioSource> (),track); 
-	 */
-	public static void playSingleFX(AudioSource src, AudioClip clip) {
-		AudioSource efxSource = src; 
-		efxSource.clip = clip;
-		efxSource.Play(); 
-	}
 		
-	/** To Use: 
-	 * SoundManager.RandomizeSfx(gameObject.GetComponent<AudioSource> (),tracksArray); 
-	 */
-	public static void RandomizeSfx (AudioSource source, params AudioClip[] clips) {
-		AudioSource efxSource = source; 
-		int randomIndex = Random.Range (0, clips.Length); 
-		efxSource.clip = clips [randomIndex]; 
-		efxSource.Play (); 
-	}
-		
-	/** To Use: 
-	 * SoundManager.SwapSnapshotFX (isFiltered, normal, filtered);
-	 * isFiltered = !isFiltered; 
-	*/
-	public static void SwapSnapshotFX(bool isFiltered, 
-									AudioMixerSnapshot normal, AudioMixerSnapshot filtered) {
-		if (isFiltered) {
-			normal.TransitionTo (.2f); 
-			isFiltered = false;
-		} else {
-			filtered.TransitionTo (.2f); 
-			isFiltered = true; 
-		}
-	}
-
 	/** To Use: 
 	 * Add your master mixer so you can pass it to next new object
 	 * public AudioMixerGroup mixer;
@@ -86,6 +52,22 @@ public class SoundManager : MonoBehaviour {
 		}
 		newSource.volume = 1.0f; 
 		Destroy (GetComponent<AudioSource>()); 
+	}
+
+
+	/** To Use: 
+	 * SoundManager.SwapSnapshotFX (isFiltered, normal, filtered);
+	 * isFiltered = !isFiltered; 
+	*/
+	public static void SwapSnapshotFX(bool isFiltered, 
+									AudioMixerSnapshot normal, AudioMixerSnapshot filtered) {
+		if (isFiltered) {
+			normal.TransitionTo (.2f); 
+			isFiltered = false;
+		} else {
+			filtered.TransitionTo (.2f); 
+			isFiltered = true; 
+		}
 	}
 		
 }
