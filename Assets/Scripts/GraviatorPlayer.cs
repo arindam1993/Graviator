@@ -24,6 +24,8 @@ public class GraviatorPlayer : MonoBehaviour {
     //Gun
     public Gun gun;
 
+    public JetTrail jetTrail;
+
     //Private member variables
     Rigidbody2D rbd;
 
@@ -78,6 +80,9 @@ public class GraviatorPlayer : MonoBehaviour {
         {
             gun.FireHeld();
         }
+
+
+        jetTrail.SetThrust(thrustMag);
 	}
 
 
