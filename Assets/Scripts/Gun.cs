@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour {
 
     //Default fireable fires when you have no powerup fireable
     public GameObject PistolFireable;
+    public int PlayerIndex = -1;
     IFireable defaultFireable;
     IFireable powerUpFireable;
 
@@ -14,7 +15,7 @@ public class Gun : MonoBehaviour {
     public void SetPowerupFireable(IFireable fa)
     {
         this.powerUpFireable = fa;
-        fa.Initialize(OnFireableExpired, firePoint);      
+        fa.Initialize(OnFireableExpired, firePoint, PlayerIndex);      
     }
 
     public void FireDown()
@@ -61,6 +62,6 @@ public class Gun : MonoBehaviour {
     {
         //debugFireable = GameObject.Find("DebugFireable").GetComponent<DebugFireable>();
         this.defaultFireable = PistolFireable.GetComponent<IFireable>();
-        this.defaultFireable.Initialize(null, firePoint);
+        this.defaultFireable.Initialize(null, firePoint, PlayerIndex);
     }
 }

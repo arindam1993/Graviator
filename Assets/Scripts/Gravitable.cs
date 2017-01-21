@@ -21,7 +21,7 @@ public class Gravitable : MonoBehaviour {
             float dist = Vector3.Distance(planet.transform.position, transform.position);
             if (dist <= maxGravDist) {
                 Vector3 v = planet.transform.position - transform.position;
-                rb.AddForce(v.normalized * (1.0f - dist / maxGravDist) * maxGravity);
+                rb.AddForce(v.normalized  * maxGravity / (dist * dist));
             }
         }
     }

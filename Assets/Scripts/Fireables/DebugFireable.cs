@@ -6,7 +6,7 @@ using UnityEngine;
 public class DebugFireable : MonoBehaviour, IFireable {
 
 
-    public void Initialize(OnFireableExpiredDelegate cb, Transform shootPt)
+    public void Initialize(OnFireableExpiredDelegate cb, Transform shootPt, int PlayerIndex)
     {
         Debug.Log("Fireable Initialized");
         this.transform.parent = shootPt;

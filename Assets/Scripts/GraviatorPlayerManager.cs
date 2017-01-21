@@ -112,7 +112,11 @@ public class GraviatorPlayerManager : MonoBehaviour {
 
 
             player.PlayerIndex = availablePlayer;
+
             players.Add(player);
+
+            Debug.Log("Player" + (availablePlayer + 1));
+            gameObject.layer = LayerMask.NameToLayer("Player"+(availablePlayer+1));
 
             return player;
         }

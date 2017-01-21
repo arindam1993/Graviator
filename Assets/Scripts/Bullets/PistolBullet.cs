@@ -9,9 +9,15 @@ public class PistolBullet : MonoBehaviour {
 
     public TrailRenderer trail;
     public GameObject sprite;
+   
 
     bool otherDestroyed;
     
+    void Start()
+    {
+       
+    }
+
     public void OnDisable()
     {
         Debug.Log("Pistol Bullet despawned");

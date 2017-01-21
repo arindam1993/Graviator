@@ -5,7 +5,7 @@ using UnityEngine;
 public delegate void OnFireableExpiredDelegate();
 public interface IFireable  {
 
-    void Initialize(OnFireableExpiredDelegate cb, Transform firePoint);
+    void Initialize(OnFireableExpiredDelegate cb, Transform firePoint, int PlayerIndex);
     void OnFireDown();
     void OnFireHeld();
 }

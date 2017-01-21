@@ -48,6 +48,7 @@ public class GraviatorPlayer : MonoBehaviour {
         }
         currentFuel = StartFuel;
 
+        gun.PlayerIndex = PlayerIndex;
 
 	}
 	

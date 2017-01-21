@@ -10,18 +10,21 @@ public class PistolFireable : MonoBehaviour, IFireable {
 
     public float shootVelocity;
 
-    public void Initialize(OnFireableExpiredDelegate cb, Transform firePoint)
+    int PlayerIndex;
+
+    public void Initialize(OnFireableExpiredDelegate cb, Transform firePoint, int PlayerIndex)
     {
         this.transform.parent = firePoint;
         this.transform.localPosition = Vector3.zero;
         this.transform.localRotation = Quaternion.identity;
+        this.PlayerIndex = PlayerIndex;
     }
 
     public void OnFireDown()
     {
         GameObject bullet = EasyObjectPool.instance.GetObjectFromPool("PistolBullet", this.transform.position, Quaternion.identity);
         Rigidbody2D rbd = bullet.GetComponent<Rigidbody2D>();
-
+        bullet.layer = LayerMask.NameToLayer("Bullet_Player"+(PlayerIndex+1));
         rbd.velocity = this.transform.up * shootVelocity;
     }
 
