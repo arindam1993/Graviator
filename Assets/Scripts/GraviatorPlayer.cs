@@ -36,6 +36,8 @@ public class GraviatorPlayer : MonoBehaviour {
     }
     public ControlMode controlMode;
 
+    public GameObject PistolBulletPrefab;
+
 
     // Use this for initialization
     void Start () {
@@ -45,6 +47,7 @@ public class GraviatorPlayer : MonoBehaviour {
             rbd = gameObject.AddComponent<Rigidbody2D>();
         }
         currentFuel = StartFuel;
+
 
 	}
 	

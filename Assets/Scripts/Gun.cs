@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
 
-    IFireable fireable;
+    //Default fireable fires when you have no powerup fireable
+    public GameObject PistolFireable;
+    IFireable defaultFireable;
+    IFireable powerUpFireable;
 
-    public void SetFireable(IFireable fa)
+    public Transform firePoint;
+
+    public void SetPowerupFireable(IFireable fa)
     {
-        this.fireable = fa;
-        fa.Initialize(OnFireableExpired);      
+        this.powerUpFireable = fa;
+        fa.Initialize(OnFireableExpired, firePoint);      
     }
 
     public void FireDown()
     {
-        fireable.OnFireDown();
+        if (powerUpFireable != null)
+        {
+            powerUpFireable.OnFireDown();
+            return; 
+        }
+        defaultFireable.OnFireDown();
     }
 	
     public void FireHeld()
     {
-        fireable.OnFireHeld();
+        if (powerUpFireable != null)
+        {
+            powerUpFireable.OnFireHeld();
+            return;
+        }
+        defaultFireable.OnFireHeld();
     }
     public void SetAimDirection(Vector2 direction)
     {
@@ -30,15 +45,22 @@ public class Gun : MonoBehaviour {
     public void OnFireableExpired()
     {
         Debug.Log("Fireable expired");
+        this.powerUpFireable = null;
     }
 
 
 
-    public DebugFireable debugFireable;
-    //Debug
+    //public DebugFireable debugFireable;
+    ////Debug
+    void Awake()
+    {
+        this.powerUpFireable = null;
+    }
+
     void Start()
     {
-        debugFireable = GameObject.Find("DebugFireable").GetComponent<DebugFireable>();
-        SetFireable(debugFireable);
+        //debugFireable = GameObject.Find("DebugFireable").GetComponent<DebugFireable>();
+        this.defaultFireable = PistolFireable.GetComponent<IFireable>();
+        this.defaultFireable.Initialize(null, firePoint);
     }
 }
