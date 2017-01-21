@@ -19,7 +19,7 @@ public class GraviatorPlayer : MonoBehaviour {
     public float StartFuel;
     public float FuelSpendRate;
     public float FuelRegenRate;
-    public float currentFuel;
+    private float currentFuel;
 
     //Gun
     public Gun gun;
@@ -42,6 +42,8 @@ public class GraviatorPlayer : MonoBehaviour {
         {
             rbd = gameObject.AddComponent<Rigidbody2D>();
         }
+        currentFuel = StartFuel;
+
 	}
 	
 	// Update is called once per frame
@@ -57,14 +59,31 @@ public class GraviatorPlayer : MonoBehaviour {
             Thrust(thrustMag);
         }
 
+        if ( thrustMag < 0.1 )
+        {
+            if( currentFuel < StartFuel)
+            {
+                RegenFuel();
+            }
+        }
+
         gun.SetAimDirection(Actions.Aim.Vector);
+
+        if(Actions.LT.WasPressed)
+        {
+            gun.FireDown();
+        }
+
+        if (Actions.LT.IsPressed)
+        {
+            gun.FireHeld();
+        }
 	}
 
 
     void RotateTowards(Vector3 orientation)
     {
-        Debug.Log(orientation);
-        Quaternion target = Quaternion.LookRotation(Vector3.forward, orientation);
+         Quaternion target = Quaternion.LookRotation(Vector3.forward, orientation);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, target, RotateSpeed * Time.deltaTime);
     }
 
@@ -72,6 +91,11 @@ public class GraviatorPlayer : MonoBehaviour {
     {
         rbd.AddRelativeForce(Vector3.up * MoveSpeed * thrust, ForceMode2D.Force);
         currentFuel -= FuelSpendRate * thrust * Time.deltaTime;
+    }
+
+    void RegenFuel()
+    {
+        currentFuel += FuelRegenRate * Time.deltaTime;
     }
 
 
