@@ -31,8 +31,9 @@ public class GraviatorPlayer : MonoBehaviour {
         StickOnly,
         Trigger
     }
-
     public ControlMode controlMode;
+
+
     // Use this for initialization
     void Start () {
         rbd = GetComponent<Rigidbody2D>();
@@ -50,7 +51,11 @@ public class GraviatorPlayer : MonoBehaviour {
         if (controlMode == ControlMode.Trigger) thrustMag = Actions.RT.RawValue;
 
         RotateTowards(Actions.Rotate.Vector);
-        Thrust(thrustMag);
+        if ( currentFuel > 0 )
+        {
+            Thrust(thrustMag);
+        }
+
 	}
 
 
@@ -63,12 +68,12 @@ public class GraviatorPlayer : MonoBehaviour {
 
     void Thrust(float thrust)
     {
-        if( currentFuel > 0)
-        {
-            rbd.AddRelativeForce(Vector3.up * MoveSpeed * thrust, ForceMode2D.Force);
-            currentFuel -= FuelSpendRate * thrust * Time.deltaTime;
-        }
+        rbd.AddRelativeForce(Vector3.up * MoveSpeed * thrust, ForceMode2D.Force);
+        currentFuel -= FuelSpendRate * thrust * Time.deltaTime;
+
     }
+
+
 
 
 }
