@@ -31,7 +31,7 @@
 		void OnEnable()
 		{
 			InputManager.OnDeviceDetached += OnDeviceDetached;
-			keyboardListener = PlayerActions.CreateWithKeyboardBindings();
+			//keyboardListener = PlayerActions.CreateWithKeyboardBindings();
 			joystickListener = PlayerActions.CreateWithJoystickBindings();
 		}
 

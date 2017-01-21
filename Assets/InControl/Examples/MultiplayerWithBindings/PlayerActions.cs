@@ -13,7 +13,18 @@
 		public PlayerAction Right;
 		public PlayerAction Up;
 		public PlayerAction Down;
-		public PlayerTwoAxisAction Rotate;
+        public PlayerAction LeftAim;
+        public PlayerAction RightAim;
+        public PlayerAction UpAim;
+        public PlayerAction DownAim;
+        public PlayerTwoAxisAction Rotate;
+        public PlayerTwoAxisAction Aim;
+        public PlayerAction Start;
+        public PlayerAction Select;
+        public PlayerAction LB;
+        public PlayerAction RB;
+        public PlayerAction RT;
+        public PlayerAction LT;
 
 
 		public PlayerActions()
@@ -22,30 +33,30 @@
 			Red = CreatePlayerAction( "Red" );
 			Blue = CreatePlayerAction( "Blue" );
 			Yellow = CreatePlayerAction( "Yellow" );
+
 			Left = CreatePlayerAction( "Left" );
 			Right = CreatePlayerAction( "Right" );
 			Up = CreatePlayerAction( "Up" );
 			Down = CreatePlayerAction( "Down" );
-			Rotate = CreateTwoAxisPlayerAction( Left, Right, Down, Up );
-		}
+
+            LeftAim = CreatePlayerAction("LeftAim");
+            RightAim = CreatePlayerAction("RightAim");
+            UpAim = CreatePlayerAction("UpAim");
+            DownAim = CreatePlayerAction("DownAim");
+
+            Rotate = CreateTwoAxisPlayerAction( Left, Right, Down, Up );
+            Aim = CreateTwoAxisPlayerAction(LeftAim, RightAim, DownAim, UpAim);
+
+            Start = CreatePlayerAction("Start");
+            Select = CreatePlayerAction("Select");
+
+            LB = CreatePlayerAction("LB");
+            RB = CreatePlayerAction("RB");
+            LT = CreatePlayerAction("LT");
+            RT = CreatePlayerAction("RT");
+        }
 
 
-		public static PlayerActions CreateWithKeyboardBindings()
-		{
-			var actions = new PlayerActions();
-
-			actions.Green.AddDefaultBinding( Key.A );
-			actions.Red.AddDefaultBinding( Key.S );
-			actions.Blue.AddDefaultBinding( Key.D );
-			actions.Yellow.AddDefaultBinding( Key.F );
-
-			actions.Up.AddDefaultBinding( Key.UpArrow );
-			actions.Down.AddDefaultBinding( Key.DownArrow );
-			actions.Left.AddDefaultBinding( Key.LeftArrow );
-			actions.Right.AddDefaultBinding( Key.RightArrow );
-
-			return actions;
-		}
 
 
 		public static PlayerActions CreateWithJoystickBindings()
@@ -57,15 +68,23 @@
 			actions.Blue.AddDefaultBinding( InputControlType.Action3 );
 			actions.Yellow.AddDefaultBinding( InputControlType.Action4 );
 
+            actions.LB.AddDefaultBinding(InputControlType.LeftBumper);
+            actions.RB.AddDefaultBinding(InputControlType.RightBumper);
+            actions.LT.AddDefaultBinding(InputControlType.LeftTrigger);
+            actions.RT.AddDefaultBinding(InputControlType.RightTrigger);
+
+            actions.Start.AddDefaultBinding(InputControlType.Start);
+            actions.Select.AddDefaultBinding(InputControlType.Select);
+
 			actions.Up.AddDefaultBinding( InputControlType.LeftStickUp );
 			actions.Down.AddDefaultBinding( InputControlType.LeftStickDown );
 			actions.Left.AddDefaultBinding( InputControlType.LeftStickLeft );
 			actions.Right.AddDefaultBinding( InputControlType.LeftStickRight );
 
-			actions.Up.AddDefaultBinding( InputControlType.DPadUp );
-			actions.Down.AddDefaultBinding( InputControlType.DPadDown );
-			actions.Left.AddDefaultBinding( InputControlType.DPadLeft );
-			actions.Right.AddDefaultBinding( InputControlType.DPadRight );
+			actions.UpAim.AddDefaultBinding( InputControlType.RightStickUp );
+			actions.DownAim.AddDefaultBinding( InputControlType.RightStickDown);
+			actions.LeftAim.AddDefaultBinding( InputControlType.RightStickLeft);
+			actions.RightAim.AddDefaultBinding( InputControlType.RightStickRight);
 
 			return actions;
 		}
