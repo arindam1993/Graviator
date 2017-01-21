@@ -48,6 +48,7 @@ public class GraviatorPlayer : MonoBehaviour {
         }
         currentFuel = StartFuel;
 
+        rbd.drag = 0.3f;
         gun.PlayerIndex = PlayerIndex;
 
 	}
@@ -57,7 +58,7 @@ public class GraviatorPlayer : MonoBehaviour {
 
         float thrustMag=0.0f;
         if (controlMode == ControlMode.StickOnly) thrustMag = Actions.Rotate.Vector.magnitude;
-        if (controlMode == ControlMode.Trigger) thrustMag = Actions.RT.RawValue;
+        if (controlMode == ControlMode.Trigger) thrustMag = Actions.LT.RawValue;
 
         RotateTowards(Actions.Rotate.Vector);
         if ( currentFuel > 0 )
@@ -75,12 +76,12 @@ public class GraviatorPlayer : MonoBehaviour {
 
         gun.SetAimDirection(Actions.Aim.Vector);
 
-        if(Actions.LT.WasPressed)
+        if(Actions.RT.WasPressed)
         {
             gun.FireDown();
         }
 
-        if (Actions.LT.IsPressed)
+        if (Actions.RT.IsPressed)
         {
             gun.FireHeld();
         }
@@ -92,8 +93,11 @@ public class GraviatorPlayer : MonoBehaviour {
 
     void RotateTowards(Vector3 orientation)
     {
-         Quaternion target = Quaternion.LookRotation(Vector3.forward, orientation);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, target, RotateSpeed * Time.deltaTime);
+        if (orientation.magnitude > 0.01) {
+            Quaternion target = Quaternion.LookRotation(Vector3.forward, orientation);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, RotateSpeed * Time.deltaTime);
+        }
+         
     }
 
     void Thrust(float thrust)
@@ -107,6 +111,15 @@ public class GraviatorPlayer : MonoBehaviour {
         currentFuel += FuelRegenRate * Time.deltaTime;
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "GravityWell")
+        {
+            rbd.velocity *= 0.5f;
+            rbd.angularVelocity *= 0.5f;
+        }
+    }
 
 
 
