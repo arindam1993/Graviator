@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37e740c8-a1b6-47d9-9a27-a54728d0092b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Images/circle_png_by_xdicsii-d4a2odp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Prefabs/GravityWell.prefab" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Prefabs/Horizon.prefab" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Images.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Images/circle_png_by_xdicsii-d4a2odp.png.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Prefabs/GravityWell.prefab.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Prefabs/Horizon.prefab.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs.meta" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tes.exe" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scenes/Test/PlayerControls.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/PlayerControls.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Graviator/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Graviator/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Graviator/riderModule.iml" afterPath="$PROJECT_DIR$/.idea/.idea.Graviator/riderModule.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/Gravitable.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/Gravitable.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,54 +39,91 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6464011">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Attractor.cs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="448">
-                  <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Gravitable.cs" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Assets/Scripts/Gravitable.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="384">
-                  <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-                  <folding>
-                    <marker date="1485037317126" expanded="true" signature="6:78" ph="..." />
-                    <marker date="1485037317126" expanded="true" signature="120:1310" ph="{...}" />
-                    <marker date="1485037317126" expanded="true" signature="272:389" ph="{...}" />
-                    <marker date="1485037317126" expanded="true" signature="415:1308" ph="{...}" />
-                    <marker date="1485037317126" expanded="true" signature="463:1302" ph="{...}" />
-                    <marker date="1485037317126" expanded="true" signature="983:1292" ph="{...}" />
-                    <marker date="1485037317126" expanded="true" signature="1134:1278" ph="/* ======= ... */" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Mover.cs" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Attractor.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+              <folding>
+                <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+                <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+                <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+                <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gravitable.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Gravitable.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+              <folding>
+                <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+                <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+                <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+                <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+                <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+                <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mover.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+                <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+                <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+                <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GravityWellEffect.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+              <folding>
+                <marker date="1485073388101" expanded="true" signature="6:117" ph="..." />
+                <marker date="1485073388101" expanded="true" signature="206:2096" ph="{...}" />
+                <marker date="1485073388101" expanded="true" signature="786:1319" ph="{...}" />
+                <marker date="1485073388101" expanded="true" signature="1372:2094" ph="{...}" />
+                <marker date="1485073388101" expanded="true" signature="1578:1627" ph="{...}" />
+                <marker date="1485073388101" expanded="true" signature="1852:2089" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GravityWell.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GravityWell.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <marker date="1485036725552" expanded="true" signature="6:78" ph="..." />
+                <marker date="1485036725552" expanded="true" signature="121:194" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>position</find>
+      <find>speed</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -89,7 +139,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GraviatorPlayerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GravityWell.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IFireable.cs" />
+        <option value="$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/RippleEffect/RippleEffect1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gravitable.cs" />
+        <option value="$PROJECT_DIR$/Assets/RippleEffect/PointRippleEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/ParticleEffects/mWaves2D1/mWaves1.js" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs" />
       </list>
     </option>
   </component>
@@ -178,11 +233,15 @@
       <workItem from="1485000814161" duration="829000" />
       <workItem from="1485001841551" duration="1666000" />
       <workItem from="1485037319391" duration="267000" />
+      <workItem from="1485038490385" duration="7494000" />
+      <workItem from="1485050502885" duration="926000" />
+      <workItem from="1485051444377" duration="4952000" />
+      <workItem from="1485056510083" duration="13781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9074000" />
+    <option name="totallyTimeSpent" value="36227000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -195,10 +254,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11727079" sideWeight="0.4837165" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.46859902" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -206,7 +265,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11727079" sideWeight="0.5162835" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.531401" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -232,7 +291,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
           <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-          <folding />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Gravitable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -240,7 +319,227 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1485073388101" expanded="true" signature="6:117" ph="..." />
+            <marker date="1485073388101" expanded="true" signature="206:2096" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="786:1319" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1372:2094" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1578:1627" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1852:2089" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/PointRippleEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ParticleEffects/mWaves2D1/mWaves1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="60" column="11" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="48" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Gravitable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/PointRippleEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ParticleEffects/mWaves2D1/mWaves1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="60" column="11" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="48" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1485073388101" expanded="true" signature="6:117" ph="..." />
+            <marker date="1485073388101" expanded="true" signature="206:2096" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="786:1319" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1372:2094" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1578:1627" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1852:2089" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Gravitable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding>
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -249,13 +548,12 @@
         <state relative-caret-position="432">
           <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding>
-            <marker date="1485037317126" expanded="true" signature="6:78" ph="..." />
-            <marker date="1485037317126" expanded="true" signature="120:1310" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="272:389" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="415:1308" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="463:1302" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="983:1292" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="1134:1278" ph="/* ======= ... */" />
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -264,7 +562,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-          <folding />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -273,13 +576,12 @@
         <state relative-caret-position="495">
           <caret line="33" column="47" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
           <folding>
-            <marker date="1485037317126" expanded="true" signature="6:78" ph="..." />
-            <marker date="1485037317126" expanded="true" signature="120:1310" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="272:389" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="415:1308" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="463:1302" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="983:1292" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="1134:1278" ph="/* ======= ... */" />
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -288,7 +590,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -310,7 +617,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-          <folding />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -318,7 +630,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -327,13 +644,12 @@
         <state relative-caret-position="135">
           <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
-            <marker date="1485037317126" expanded="true" signature="6:78" ph="..." />
-            <marker date="1485037317126" expanded="true" signature="120:1310" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="272:389" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="415:1308" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="463:1302" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="983:1292" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="1134:1278" ph="/* ======= ... */" />
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -341,22 +657,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController1.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController2D.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GraviatorPlayerManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
@@ -365,25 +665,102 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/IFireable.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect1.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/PointRippleEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/RippleEffect/RippleEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="48" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ParticleEffects/mWaves2D1/mWaves1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="60" column="11" lean-forward="false" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Attractor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <marker date="1485037316178" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485037316178" expanded="true" signature="146:769" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="296:598" ph="{...}" />
+            <marker date="1485037316178" expanded="true" signature="654:764" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Mover.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1484993514928" expanded="true" signature="6:78" ph="..." />
+            <marker date="1484993514928" expanded="true" signature="144:594" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="239:432" ph="{...}" />
+            <marker date="1484993514928" expanded="true" signature="485:592" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GravityWell.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="128">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1485036725552" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485036725552" expanded="true" signature="121:194" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Gravitable.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="464">
+          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <marker date="1485037317126" expanded="true" signature="6:78" ph="..." />
-            <marker date="1485037317126" expanded="true" signature="120:1310" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="272:389" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="415:1308" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="463:1302" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="983:1292" ph="{...}" />
-            <marker date="1485037317126" expanded="true" signature="1134:1278" ph="/* ======= ... */" />
+            <marker date="1485073388100" expanded="true" signature="6:78" ph="..." />
+            <marker date="1485073388100" expanded="true" signature="120:1180" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="281:399" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="425:1178" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="474:1172" ph="{...}" />
+            <marker date="1485073388100" expanded="true" signature="994:1162" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GravityWellEffect.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <marker date="1485073388101" expanded="true" signature="6:117" ph="..." />
+            <marker date="1485073388101" expanded="true" signature="206:2096" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="786:1319" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1372:2094" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1578:1627" ph="{...}" />
+            <marker date="1485073388101" expanded="true" signature="1852:2089" ph="{...}" />
           </folding>
         </state>
       </provider>

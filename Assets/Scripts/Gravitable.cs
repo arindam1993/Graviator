@@ -9,15 +9,15 @@ public class Gravitable : MonoBehaviour {
 
     private Rigidbody2D rb;
 
-    GameObject[] planets;
+    private GameObject[] _planets;
 
     void Start () {
-        planets = GameObject.FindGameObjectsWithTag("GravityWell");
+        _planets = GameObject.FindGameObjectsWithTag("GravityWell");
         rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate () {
-        foreach(GameObject planet in planets) {
+        foreach(GameObject planet in _planets) {
             float dist = Vector3.Distance(planet.transform.position, transform.position);
 
             // Get Planet Gravity Well Properties
@@ -29,10 +29,8 @@ public class Gravitable : MonoBehaviour {
 
             if (dist <= planetGravDist) {
                 Vector3 v = planet.transform.position - transform.position;
-                rb.AddForce(v.normalized  * maxGravity / (dist * dist));
-// =======
-//                 rb.AddForce(v.normalized * (1.0f - dist / planetGravDist) * planetGravity);
-// >>>>>>> origin/custom_gravity_wells
+                rb.AddForce(v.normalized  * planetGravity / (dist * dist));
+
             }
         }
     }
