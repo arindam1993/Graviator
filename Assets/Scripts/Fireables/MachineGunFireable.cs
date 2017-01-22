@@ -13,7 +13,7 @@ public class MachineGunFireable : MonoBehaviour, IFireable
     int PlayerIndex;
 
     [SerializeField]
-    float delayBetweenShots = .5f;
+    float delayBetweenShots = .2f;
     float timeSinceLastShot = 0;
 
     public void Initialize(OnFireableExpiredDelegate cb, Transform firePoint, int PlayerIndex)
@@ -22,6 +22,11 @@ public class MachineGunFireable : MonoBehaviour, IFireable
         this.transform.localPosition = Vector3.zero;
         this.transform.localRotation = Quaternion.identity;
         this.PlayerIndex = PlayerIndex;
+
+
+        UnityTimer.Instance.CallAfterDelay(()=> {
+            cb();
+        }, 5);
     }
 
     public void OnFireDown()
