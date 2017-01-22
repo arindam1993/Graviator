@@ -130,9 +130,7 @@ public class GraviatorPlayer : MonoBehaviour {
             PowerUp powerUp = collision.gameObject.GetComponent<PowerUp>();
             gun.SetPowerupFireable(powerUp.firePowerUp.GetComponent<IFireable>());
             powerUp.HideItem();
+            powerUp.itemFeedback.Animate(transform, 1, 0, powerUp.expirationTime);
         }
     }
-
-
-
 }
