@@ -19,9 +19,20 @@ public class Gravitable : MonoBehaviour {
     void FixedUpdate () {
         foreach(GameObject planet in planets) {
             float dist = Vector3.Distance(planet.transform.position, transform.position);
-            if (dist <= maxGravDist) {
+
+            // Get Planet Gravity Well Properties
+            GravityWell gravityWell = planet.GetComponent(typeof(GravityWell)) as GravityWell;
+            float planetGravDist = gravityWell.gravDist;
+            float planetGravity = gravityWell.gravity;
+
+//            Debug.Log("Planet: " + planet.gameObject.name + ". GravDist: " + planetGravDist + ". Gravity: " + planetGravity);
+
+            if (dist <= planetGravDist) {
                 Vector3 v = planet.transform.position - transform.position;
                 rb.AddForce(v.normalized  * maxGravity / (dist * dist));
+// =======
+//                 rb.AddForce(v.normalized * (1.0f - dist / planetGravDist) * planetGravity);
+// >>>>>>> origin/custom_gravity_wells
             }
         }
     }
