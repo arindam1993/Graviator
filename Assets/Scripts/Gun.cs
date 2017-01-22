@@ -65,7 +65,5 @@ public class Gun : MonoBehaviour {
         this.defaultFireable = PistolFireable.GetComponent<IFireable>();
         this.defaultFireable.Initialize(null, firePoint, PlayerIndex);
 
-        this.powerUpFireable = MGFireable.GetComponent<IFireable>();
-        this.powerUpFireable.Initialize(OnFireableExpired, firePoint, PlayerIndex);
     }
 }

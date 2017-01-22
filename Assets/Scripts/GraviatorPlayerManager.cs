@@ -128,6 +128,7 @@ public class GraviatorPlayerManager : MonoBehaviour {
     void RemovePlayer(GraviatorPlayer player)
     {
         availablePlayers.Push(player.PlayerIndex);
+        UIManager.Instance.energyBars[player.PlayerIndex].Hide();
         Debug.Log("Player:" + player.PlayerIndex + " Left");
         players.Remove(player);
         player.Actions = null;

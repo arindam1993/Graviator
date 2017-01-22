@@ -7,6 +7,7 @@ using MultiplayerWithBindingsExample;
 public class GraviatorPlayer : MonoBehaviour {
 
     public int PlayerIndex = -1;
+    public int Score;
     public PlayerActions Actions;
 
     //Movement parameters
@@ -20,6 +21,7 @@ public class GraviatorPlayer : MonoBehaviour {
     public float FuelSpendRate;
     public float FuelRegenRate;
     private float currentFuel;
+  
 
     //Gun
     public Gun gun;
@@ -38,6 +40,8 @@ public class GraviatorPlayer : MonoBehaviour {
 
     public GameObject PistolBulletPrefab;
 
+    EnergyBar eB;
+
 
     // Use this for initialization
     void Start () {
@@ -50,6 +54,8 @@ public class GraviatorPlayer : MonoBehaviour {
 
         rbd.drag = 0.3f;
         gun.PlayerIndex = PlayerIndex;
+        eB = UIManager.Instance.energyBars[PlayerIndex];
+        eB.Show();
 
 	}
 	
@@ -61,14 +67,15 @@ public class GraviatorPlayer : MonoBehaviour {
         if (controlMode == ControlMode.Trigger) thrustMag = Actions.LT.RawValue;
 
         RotateTowards(Actions.Rotate.Vector);
-        if ( currentFuel > 0 )
+        if ( currentFuel > 0.2 )
         {
             Thrust(thrustMag);
+            jetTrail.SetThrust(thrustMag);
         }
 
         if ( thrustMag < 0.1 )
         {
-            if( currentFuel < StartFuel)
+            if( currentFuel <  MaxFuel)
             {
                 RegenFuel();
             }
@@ -87,7 +94,9 @@ public class GraviatorPlayer : MonoBehaviour {
         }
 
 
-        jetTrail.SetThrust(thrustMag);
+        
+
+        eB.SetPlayerData(MaxFuel, currentFuel, Score);
 	}
 
 
@@ -114,6 +123,13 @@ public class GraviatorPlayer : MonoBehaviour {
     public void TakeHit(Vector2 incident, float intensity)
     {
         rbd.AddForce(incident * intensity , ForceMode2D.Impulse);
+
+        float newFuel = MaxFuel - intensity * 5;
+        MaxFuel = Mathf.Clamp(newFuel, MinFuel, 10000);
+
+        currentFuel = Mathf.Clamp(currentFuel, 0, MaxFuel);
+
+
     }
 
 
