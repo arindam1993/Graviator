@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  RotateSpeed: 500
+  RotateSpeed: 1000
   MoveSpeed: 15
   MinFuel: 100
   MaxFuel: 300
