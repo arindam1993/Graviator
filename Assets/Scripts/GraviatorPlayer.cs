@@ -124,6 +124,13 @@ public class GraviatorPlayer : MonoBehaviour {
             rbd.velocity *= 0.5f;
             rbd.angularVelocity *= 0.5f;
         }
+
+        if (collision.gameObject.tag == "Item")
+        {
+            PowerUp powerUp = collision.gameObject.GetComponent<PowerUp>();
+            gun.SetPowerupFireable(powerUp.firePowerUp.GetComponent<IFireable>());
+            powerUp.HideItem();
+        }
     }
 
 

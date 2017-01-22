@@ -10,7 +10,6 @@ public class MachineGunBullet : MonoBehaviour
     public TrailRenderer trail;
     public GameObject sprite;
 
-
     bool otherDestroyed;
 
     void Start()
@@ -20,20 +19,15 @@ public class MachineGunBullet : MonoBehaviour
 
     public void OnDisable()
     {
-        //Debug.Log("Pistol Bullet despawned");
         trail.Clear();
-
     }
 
     public void OnEnable()
     {
-        //Debug.Log("Spawn Called");
-
         otherDestroyed = false;
 
         sprite.SetActive(true);
         GetComponent<CircleCollider2D>().enabled = true;
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -45,6 +39,5 @@ public class MachineGunBullet : MonoBehaviour
         {
             EasyObjectPool.instance.ReturnObjectToPool(this.gameObject);
         }, 1.0f);
-
     }
 }
