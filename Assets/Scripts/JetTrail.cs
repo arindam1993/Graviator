@@ -42,7 +42,7 @@ public class JetTrail : MonoBehaviour {
 
         //Stop particle system if thrust is too low
 
-        float lifeTime = minLifeTime + (maxLifeTime - minLifeTime) * thrust;
+        float lifeTime = minLifeTime + (maxLifeTime - minLifeTime) * thrust * 0.4f;
         _mM.startLifetime = lifeTime;
     }
 }

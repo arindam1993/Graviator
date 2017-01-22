@@ -50,6 +50,8 @@ public class Gun : MonoBehaviour {
         this.powerUpFireable = null;
     }
 
+    
+
 
 
     //public DebugFireable debugFireable;

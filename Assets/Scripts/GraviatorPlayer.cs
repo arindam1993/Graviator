@@ -127,12 +127,12 @@ public class GraviatorPlayer : MonoBehaviour {
 
             if (!Invulnerable)
             {
-                if (Actions.RT.WasPressed)
+                if (Actions.RB.WasPressed)
                 {
                     gun.FireDown();
                 }
 
-                if (Actions.RT.IsPressed)
+                if (Actions.RB.IsPressed)
                 {
                     gun.FireHeld();
                 }
@@ -146,6 +146,7 @@ public class GraviatorPlayer : MonoBehaviour {
     void RotateTowards(Vector3 orientation)
     {
         if (orientation.magnitude > 0.01) {
+            rbd.angularVelocity = 0;
             Quaternion target = Quaternion.LookRotation(Vector3.forward, orientation);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, target, RotateSpeed * Time.deltaTime);
         }
