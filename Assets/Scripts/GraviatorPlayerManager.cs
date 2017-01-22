@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using InControl;
 using MultiplayerWithBindingsExample;
 
@@ -15,11 +16,30 @@ public class GraviatorPlayerManager : MonoBehaviour {
 
     PlayerActions joystickListener;
 
+    public static GraviatorPlayerManager instance;
+
+    public class PlayerData
+    {
+        public PlayerActions Action;
+        public int PlayerIndex;
+    }
+
+    public List<PlayerData> joinedPlayers;
+
+    public GameObject MainMenuCanvas;
+
+    bool gameStarted = false;
+
+    public AudioClip gameMusic;
+    public AudioMixerGroup targetMixerGroup;
 
     void Awake()
     {
         int[] _ap = { 3, 2, 1, 0 };
         availablePlayers = new Stack<int>(_ap);
+        joinedPlayers = new List<PlayerData>();
+
+        instance = this;
     }
 
     void OnEnable()
@@ -38,15 +58,35 @@ public class GraviatorPlayerManager : MonoBehaviour {
 
     void Update()
     {
-        if (JoinButtonWasPressedOnListener(joystickListener))
+        if(!gameStarted)
         {
-            var inputDevice = InputManager.ActiveDevice;
-
-            if (ThereIsNoPlayerUsingJoystick(inputDevice))
+            if (JoinButtonWasPressedOnListener(joystickListener))
             {
-                CreatePlayer(inputDevice);
+                var inputDevice = InputManager.ActiveDevice;
+
+                if (ThereIsNoPlayerUsingJoystick(inputDevice))
+                {
+                    AddPlayer(inputDevice);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if( joinedPlayers.Count > 1)
+                {
+                    Debug.Log("Start button pressed");
+                    MainMenuCanvas.SetActive(false);
+                    gameStarted = true;
+
+                    MusicManager.CrossFade(gameMusic, targetMixerGroup);
+                    UnityTimer.Instance.CallAfterDelay( ()=>{
+                        CreateJoinedPlayers();
+                    }, 1.0f);
+                }
+                
             }
         }
+       
     }
 
 
@@ -56,13 +96,13 @@ public class GraviatorPlayerManager : MonoBehaviour {
     }
 
 
-    GraviatorPlayer FindPlayerUsingJoystick(InputDevice inputDevice)
+    PlayerData FindPlayerUsingJoystick(InputDevice inputDevice)
     {
-        var playerCount = players.Count;
+        var playerCount = joinedPlayers.Count;
         for (var i = 0; i < playerCount; i++)
         {
-            var player = players[i];
-            if (player.Actions.Device == inputDevice)
+            var player = joinedPlayers[i];
+            if (player.Action.Device == inputDevice)
             {
                 return player;
             }
@@ -82,11 +122,11 @@ public class GraviatorPlayerManager : MonoBehaviour {
 
     void OnDeviceDetached(InputDevice inputDevice)
     {
-        var player = FindPlayerUsingJoystick(inputDevice);
-        if (player != null)
-        {
-            RemovePlayer(player);
-        }
+        //var player = FindPlayerUsingJoystick(inputDevice);
+        //if (player != null)
+        //{
+        //    RemovePlayer(player);
+        //}
     }
 
 
@@ -123,6 +163,73 @@ public class GraviatorPlayerManager : MonoBehaviour {
 
         return null;
     }
+
+    void AddPlayer(InputDevice inputDevice)
+    {
+        if (players.Count < maxPlayers)
+        {
+
+            // Pop a position off the list. We'll add it back if the player is removed.
+            int availablePlayer = availablePlayers.Pop();
+            Debug.Log("Player:" + availablePlayer + " Joined");
+
+            var actions = PlayerActions.CreateWithJoystickBindings();
+            actions.Device = inputDevice;
+
+            PlayerData pD = new PlayerData()
+            {
+                Action = actions,
+                PlayerIndex = availablePlayer
+            };
+
+            joinedPlayers.Add(pD);
+
+            //var playerPosition = SpawnPoints.Instance.GetSpawnPoint(availablePlayer);
+
+            //var gameObject = (GameObject)Instantiate(playerPrefab, playerPosition, Quaternion.identity);
+            //var player = gameObject.GetComponent<GraviatorPlayer>();
+
+            //// Create a new instance and specifically set it to listen to the
+            //// given input device (joystick).
+            //var actions = PlayerActions.CreateWithJoystickBindings();
+            //actions.Device = inputDevice;
+
+            //player.Actions = actions;
+
+
+            //player.PlayerIndex = availablePlayer;
+
+            //players.Add(player);
+
+            //Debug.Log("Player" + (availablePlayer + 1));
+            //gameObject.layer = LayerMask.NameToLayer("Player"+(availablePlayer+1));
+
+        }
+
+
+    }
+
+    public void CreateJoinedPlayers()
+    {
+        foreach(PlayerData pD in joinedPlayers)
+        {
+            var playerPosition = SpawnPoints.Instance.GetSpawnPoint(pD.PlayerIndex);
+
+            var gameObject = (GameObject)Instantiate(playerPrefab, playerPosition, Quaternion.identity);
+            var player = gameObject.GetComponent<GraviatorPlayer>();
+
+            // Create a new instance and specifically set it to listen to the
+            // given input device (joystick).
+          
+            player.Actions = pD.Action;
+
+
+            player.PlayerIndex = pD.PlayerIndex;
+
+            players.Add(player);
+        }
+    }
+
 
 
     void RemovePlayer(GraviatorPlayer player)
