@@ -22,6 +22,11 @@ public class SoundFXManager : MonoBehaviour {
 	public static void playSingleFX(AudioSource src, AudioClip clip) {
 		AudioSource efxSource = src; 
 		efxSource.clip = clip;
+		if (clip.name == "JetPackBuzz") {
+			efxSource.loop = true; 
+		} else {
+			efxSource.loop = false; 
+		}
 		efxSource.Play(); 
 	}
 
@@ -32,6 +37,11 @@ public class SoundFXManager : MonoBehaviour {
 		AudioSource efxSource = source; 
 		int randomIndex = Random.Range (0, clips.Length); 
 		efxSource.clip = clips [randomIndex]; 
+		if (clips [randomIndex].name == "JetPackBuzz") {
+			efxSource.loop = true; 
+		} else {
+			efxSource.loop = false; 
+		}
 		efxSource.Play (); 
 	}
 

@@ -38,6 +38,7 @@ public class MusicManager : MonoBehaviour {
 		newAudioSource.volume = 0.0f; 
 		newAudioSource.clip = newTrack;
 		newAudioSource.outputAudioMixerGroup = output; 
+		newAudioSource.loop = true;
 		newAudioSource.Play (); 
 		instance.StartCoroutine(instance.ActuallyCrossfade(newAudioSource,fadeTime)); 
 	}

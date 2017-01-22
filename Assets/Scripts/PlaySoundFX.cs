@@ -16,8 +16,8 @@ public class PlaySoundFX : MonoBehaviour {
 	}
 
 	void playSFX() {
-		// SoundFXManager.RandomizeSfx(gameObject.GetComponent<AudioSource> (),sfx); 
-		SoundFXManager.playSingleFX(gameObject.GetComponent<AudioSource> (),sfx[4]); 
+		SoundFXManager.RandomizeSfx(gameObject.GetComponent<AudioSource> (),sfx); 
+		// SoundFXManager.playSingleFX(gameObject.GetComponent<AudioSource> (),sfx[4]); 
 	}
 
 
