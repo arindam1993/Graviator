@@ -14,7 +14,7 @@ public class PowerUp : MonoBehaviour
         // temporary "hiding"
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
-        //show fade ideally
+        //fade ideally
     }
 
     void Start ()
