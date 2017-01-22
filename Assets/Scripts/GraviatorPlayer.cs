@@ -127,12 +127,12 @@ public class GraviatorPlayer : MonoBehaviour {
 
             if (!Invulnerable)
             {
-                if (Actions.RB.WasPressed)
+                if (Actions.RT.WasPressed)
                 {
                     gun.FireDown();
                 }
 
-                if (Actions.RB.IsPressed)
+                if (Actions.RT.IsPressed)
                 {
                     gun.FireHeld();
                 }
