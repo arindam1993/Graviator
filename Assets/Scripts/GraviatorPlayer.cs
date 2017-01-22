@@ -120,7 +120,7 @@ public class GraviatorPlayer : MonoBehaviour {
             {
                 Thrust(thrustMag);
                 jetTrail.SetThrust(thrustMag);
-                jetAud.volume = thrustMag;
+                jetAud.volume = thrustMag*0.8f;
             }
 
             if (thrustMag < 0.1)
