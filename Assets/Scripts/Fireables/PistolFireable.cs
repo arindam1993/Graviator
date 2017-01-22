@@ -26,6 +26,13 @@ public class PistolFireable : MonoBehaviour, IFireable {
         Rigidbody2D rbd = bullet.GetComponent<Rigidbody2D>();
         bullet.layer = LayerMask.NameToLayer("Bullet_Player"+(PlayerIndex+1));
         rbd.velocity = this.transform.up * shootVelocity;
+
+        PistolBullet mb = bullet.GetComponent<PistolBullet>();
+        if (mb != null) {
+            Debug.Log("Trail Color" + mb.trail.colorGradient.colorKeys[0].color);
+            mb.trail.startColor = PlayerColorDict.GetPlayerColor(PlayerIndex);
+            mb.PlayerIndex = PlayerIndex;
+        }
     }
 
     //Pistol only fires on trigger press, keep this empty

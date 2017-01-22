@@ -11,15 +11,21 @@ public class EnergyBar : MonoBehaviour {
 
 
 
-    public void SetPlayerData(float maxFuel,float currentFuel, int score )
+    public void SetPlayerData(float maxFuel,float currentFuel )
     {
         float tbHeight = totalBar.rectTransform.sizeDelta.y;
         float cbHeight = currentBar.rectTransform.sizeDelta.y;
         totalBar.rectTransform.sizeDelta = new Vector2(maxFuel, tbHeight);
         currentBar.rectTransform.sizeDelta = new Vector2(currentFuel, cbHeight);
 
-        Score.text = score + "";
+        
 
+    }
+
+
+    public void SetScore(int score)
+    {
+        Score.text = score + "";
     }
 
 

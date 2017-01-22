@@ -7,7 +7,6 @@ using MultiplayerWithBindingsExample;
 public class GraviatorPlayer : MonoBehaviour {
 
     public int PlayerIndex = -1;
-    public int Score;
     public PlayerActions Actions;
 
     //Movement parameters
@@ -21,7 +20,8 @@ public class GraviatorPlayer : MonoBehaviour {
     public float FuelSpendRate;
     public float FuelRegenRate;
     private float currentFuel;
-  
+
+    public SpriteRenderer[] characterSprites;
 
     //Gun
     public Gun gun;
@@ -30,6 +30,7 @@ public class GraviatorPlayer : MonoBehaviour {
 
     //Private member variables
     Rigidbody2D rbd;
+    BoxCollider2D col;
 
     public enum ControlMode
     {
@@ -43,60 +44,99 @@ public class GraviatorPlayer : MonoBehaviour {
     EnergyBar eB;
 
 
+    public bool Invulnerable = false;
+    public bool Dead = false;
+
+
     // Use this for initialization
     void Start () {
         rbd = GetComponent<Rigidbody2D>();
+
+        foreach (SpriteRenderer s in characterSprites)
+        {
+            s.color *= ( PlayerColorDict.GetPlayerColor(PlayerIndex) + new Color(0, 0.8f, 0.8f, 0));
+            Debug.Log(s.color);
+        }
+
+        Reset();
+
         if(rbd == null)
         {
             rbd = gameObject.AddComponent<Rigidbody2D>();
         }
-        currentFuel = StartFuel;
-
+        
         rbd.drag = 0.3f;
         gun.PlayerIndex = PlayerIndex;
         eB = UIManager.Instance.energyBars[PlayerIndex];
+
+        eB.SetColor(PlayerColorDict.GetPlayerColor(PlayerIndex));
+
         eB.Show();
 
 	}
+
+
+    private void Reset()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Invulnerable");
+        Invulnerable = true;
+
+        StartCoroutine(flicker());
+
+        UnityTimer.Instance.CallAfterDelay(() => {
+            Invulnerable = false;
+            gameObject.layer = LayerMask.NameToLayer("Player"+(PlayerIndex+1));
+        }, 3.0f);
+
+        currentFuel = StartFuel;
+
+        this.transform.position = SpawnPoints.Instance.GetSpawnPoint(PlayerIndex);
+        Dead = false;
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
 
-        float thrustMag=0.0f;
-        if (controlMode == ControlMode.StickOnly) thrustMag = Actions.Rotate.Vector.magnitude;
-        if (controlMode == ControlMode.Trigger) thrustMag = Actions.LT.RawValue;
-
-        RotateTowards(Actions.Rotate.Vector);
-        if ( currentFuel > 0.2 )
+        if (!Dead)
         {
-            Thrust(thrustMag);
-            jetTrail.SetThrust(thrustMag);
-        }
 
-        if ( thrustMag < 0.1 )
-        {
-            if( currentFuel <  MaxFuel)
+            float thrustMag = 0.0f;
+            if (controlMode == ControlMode.StickOnly) thrustMag = Actions.Rotate.Vector.magnitude;
+            if (controlMode == ControlMode.Trigger) thrustMag = Actions.LT.RawValue;
+
+            RotateTowards(Actions.Rotate.Vector);
+            if (currentFuel > 0.2)
             {
-                RegenFuel();
+                Thrust(thrustMag);
+                jetTrail.SetThrust(thrustMag);
             }
+
+            if (thrustMag < 0.1)
+            {
+                if (currentFuel < MaxFuel)
+                {
+                    RegenFuel();
+                }
+            }
+
+            gun.SetAimDirection(Actions.Aim.Vector);
+
+            if (!Invulnerable)
+            {
+                if (Actions.RT.WasPressed)
+                {
+                    gun.FireDown();
+                }
+
+                if (Actions.RT.IsPressed)
+                {
+                    gun.FireHeld();
+                }
+            }
+
+            eB.SetPlayerData(MaxFuel, currentFuel);
         }
-
-        gun.SetAimDirection(Actions.Aim.Vector);
-
-        if(Actions.RT.WasPressed)
-        {
-            gun.FireDown();
-        }
-
-        if (Actions.RT.IsPressed)
-        {
-            gun.FireHeld();
-        }
-
-
-        
-
-        eB.SetPlayerData(MaxFuel, currentFuel, Score);
 	}
 
 
@@ -125,7 +165,7 @@ public class GraviatorPlayer : MonoBehaviour {
         rbd.AddForce(incident * intensity , ForceMode2D.Impulse);
 
         float newFuel = MaxFuel - intensity * 5;
-        MaxFuel = Mathf.Clamp(newFuel, MinFuel, 10000);
+        MaxFuel = Mathf.Clamp(newFuel   , MinFuel, 10000);
 
         currentFuel = Mathf.Clamp(currentFuel, 0, MaxFuel);
 
@@ -139,6 +179,41 @@ public class GraviatorPlayer : MonoBehaviour {
         {
             rbd.velocity *= 0.5f;
             rbd.angularVelocity *= 0.5f;
+        }
+
+        if(collision.gameObject.tag == "Hazard")
+        {
+            foreach (SpriteRenderer s in characterSprites)
+            {
+                s.color *= new Color(1, 1, 1, 0);
+            }
+            Dead = true;
+            UnityTimer.Instance.CallAfterDelay(() =>
+           {
+               Reset();
+           }, 2.0f);
+
+            ScoreManager.Instance.RemoveDeathScore(PlayerIndex);
+            
+        }
+    }
+
+
+    IEnumerator flicker()
+    {
+        while (Invulnerable)
+        {
+            foreach(SpriteRenderer s  in characterSprites)
+            {
+                s.color *= new Color(1, 1, 1, 0);
+            }
+           
+            yield return new WaitForSeconds(0.2f);
+            foreach (SpriteRenderer s in characterSprites)
+            {
+                s.color += new Color(0, 0, 0, 1);
+            }
+            yield return new WaitForSeconds(0.2f);
         }
     }
 

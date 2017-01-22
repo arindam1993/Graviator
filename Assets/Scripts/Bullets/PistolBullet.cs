@@ -11,7 +11,7 @@ public class PistolBullet : MonoBehaviour {
     public GameObject sprite;
     public ParticleSystem pS;
     public float KnockbackIntensity;
-   
+    public int PlayerIndex;
 
     bool otherDestroyed;
     
@@ -36,6 +36,7 @@ public class PistolBullet : MonoBehaviour {
         sprite.SetActive(true);
         GetComponent<CircleCollider2D>().enabled = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        PlayerIndex = -1;
 
     }
 
@@ -60,6 +61,8 @@ public class PistolBullet : MonoBehaviour {
                     Vector3.Normalize(rbd.velocity),
                     KnockbackIntensity
                 );
+
+            ScoreManager.Instance.AddHitScore(PlayerIndex);
         }
 
         rbd.velocity = Vector2.zero;

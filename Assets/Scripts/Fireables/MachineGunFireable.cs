@@ -50,6 +50,14 @@ public class MachineGunFireable : MonoBehaviour, IFireable
         bullet.layer = LayerMask.NameToLayer("Bullet_Player" + (PlayerIndex + 1));
         rbd.velocity = this.transform.up * shootVelocity;
 
+        MachineGunBullet mb = bullet.GetComponent<MachineGunBullet>();
+        if (mb != null) {
+            mb.trail.startColor = PlayerColorDict.GetPlayerColor(PlayerIndex);
+            mb.PlayerIndex = PlayerIndex;   
+        }
+
+       
+
         timeSinceLastShot = 0;
     }
 

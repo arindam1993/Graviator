@@ -115,8 +115,8 @@ public class GraviatorPlayerManager : MonoBehaviour {
 
             players.Add(player);
 
-            Debug.Log("Player" + (availablePlayer + 1));
-            gameObject.layer = LayerMask.NameToLayer("Player"+(availablePlayer+1));
+            //Debug.Log("Player" + (availablePlayer + 1));
+            //gameObject.layer = LayerMask.NameToLayer("Player"+(availablePlayer+1));
 
             return player;
         }
