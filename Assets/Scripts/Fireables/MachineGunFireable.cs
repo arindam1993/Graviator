@@ -13,6 +13,9 @@ public class MachineGunFireable : MonoBehaviour, IFireable
     int PlayerIndex;
 
     [SerializeField]
+    float timeToExpire = 5;
+
+    [SerializeField]
     float delayBetweenShots = .2f;
     float timeSinceLastShot = 0;
 
@@ -26,7 +29,7 @@ public class MachineGunFireable : MonoBehaviour, IFireable
 
         UnityTimer.Instance.CallAfterDelay(()=> {
             cb();
-        }, 5);
+        }, timeToExpire);
     }
 
     public void OnFireDown()

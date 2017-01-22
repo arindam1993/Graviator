@@ -181,6 +181,7 @@ public class GraviatorPlayer : MonoBehaviour {
             rbd.angularVelocity *= 0.5f;
         }
 
+
         if(collision.gameObject.tag == "Hazard")
         {
             foreach (SpriteRenderer s in characterSprites)
@@ -195,6 +196,14 @@ public class GraviatorPlayer : MonoBehaviour {
 
             ScoreManager.Instance.RemoveDeathScore(PlayerIndex);
             
+        }
+
+        if (collision.gameObject.tag == "Item")
+        {
+            PowerUp powerUp = collision.gameObject.GetComponent<PowerUp>();
+            gun.SetPowerupFireable(powerUp.firePowerUp.GetComponent<IFireable>());
+            powerUp.HideItem();
+            powerUp.itemFeedback.Animate(transform, 1, 0, powerUp.expirationTime);
         }
     }
 
@@ -218,5 +227,6 @@ public class GraviatorPlayer : MonoBehaviour {
     }
 
 
-
+  
+    
 }
