@@ -17,7 +17,7 @@ public class CameraZoom : MonoBehaviour
     {
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        distance = Vector3.Distance(topRight.position, bottomLeft.position);
+        distance = topRight.position.y - bottomLeft.position.y; //Vector3.Distance(topRight.position, bottomLeft.position);
 
         initialCameraSize = Camera.main.orthographicSize;
 	}
@@ -50,7 +50,7 @@ public class CameraZoom : MonoBehaviour
             }
         }
 
-        float newSize = Vector3.Distance(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0)) * Camera.main.orthographicSize / distance;
+        float newSize = Vector3.Distance(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0)) * initialCameraSize / distance;
         if (newSize < minSize) newSize = minSize;
         if (newSize > maxSize) newSize = maxSize;
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, newSize, Time.deltaTime * speed);
@@ -60,26 +60,27 @@ public class CameraZoom : MonoBehaviour
         {
             centerOfPlayers += players[i].transform.position;
         }
-        transform.position = Vector3.MoveTowards(transform.position, centerOfPlayers / players.Length, Time.deltaTime * speed);
+        centerOfPlayers = centerOfPlayers / players.Length;
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(centerOfPlayers.x, centerOfPlayers.y, -10), Time.deltaTime * speed);
 
         float posX = 0, posY = 0;
-        if (transform.position.x < minSize - initialCameraSize)
+        if (transform.position.x < minSize - maxSize)
         {
-            posX = minSize - initialCameraSize;
+            posX = minSize - maxSize;
         }
-        if (transform.position.x > initialCameraSize - maxSize)
+        if (transform.position.x > maxSize - minSize)
         {
-            posX = initialCameraSize - maxSize;
+            posX = maxSize - minSize;
         }
-        if (transform.position.y < minSize - initialCameraSize)
+        if (transform.position.y < minSize - maxSize)
         {
-            posY = minSize - initialCameraSize;
+            posY = minSize - maxSize;
         }
-        if (transform.position.y > initialCameraSize - maxSize)
+        if (transform.position.y > maxSize - minSize)
         {
-            posX = initialCameraSize - maxSize;
+            posY = maxSize - minSize;
         }
 
-        transform.position = new Vector3(posX, posY, transform.position.z);
+        transform.position = new Vector3(posX, posY, -10);
     }
 }
