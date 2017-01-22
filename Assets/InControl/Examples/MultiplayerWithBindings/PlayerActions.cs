@@ -73,6 +73,16 @@
             actions.LT.AddDefaultBinding(InputControlType.LeftTrigger);
             actions.RT.AddDefaultBinding(InputControlType.RightTrigger);
 
+            // keyboards bidings
+            actions.Green.AddDefaultBinding(Key.DownArrow);
+            actions.Red.AddDefaultBinding(Key.UpArrow);
+            actions.Blue.AddDefaultBinding(Key.LeftArrow);
+            actions.Yellow.AddDefaultBinding(Key.RightArrow);
+            actions.LB.AddDefaultBinding(Key.A);
+            actions.RB.AddDefaultBinding(Key.S);
+            actions.LT.AddDefaultBinding(Key.D);
+            actions.RT.AddDefaultBinding(Key.F);
+
             actions.Start.AddDefaultBinding(InputControlType.Start);
             actions.Select.AddDefaultBinding(InputControlType.Select);
 

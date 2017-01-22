@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MarchingBytes;
+
+public class MachineGunFireable : MonoBehaviour, IFireable
+{
+    [SerializeField]
+    GameObject bulletPrefab;
+    [SerializeField]
+    float shootVelocity;
+    int PlayerIndex;
+
+    [SerializeField]
+    float delayBetweenShots = .5f;
+    float timeSinceLastShot = 0;
+
+    public void Initialize(OnFireableExpiredDelegate cb, Transform firePoint, int PlayerIndex)
+    {
+        this.transform.parent = firePoint;
+        this.transform.localPosition = Vector3.zero;
+        this.transform.localRotation = Quaternion.identity;
+        this.PlayerIndex = PlayerIndex;
+    }
+
+    public void OnFireDown()
+    {
+        Shoot();
+    }
+
+    public void OnFireHeld()
+    {
+        timeSinceLastShot += Time.deltaTime;
+        if (timeSinceLastShot > delayBetweenShots)
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = EasyObjectPool.instance.GetObjectFromPool("MachineGunBullet", this.transform.position, Quaternion.identity);
+        Rigidbody2D rbd = bullet.GetComponent<Rigidbody2D>();
+        bullet.layer = LayerMask.NameToLayer("Bullet_Player" + (PlayerIndex + 1));
+        rbd.velocity = this.transform.up * shootVelocity;
+
+        timeSinceLastShot = 0;
+    }
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+
+    }
+}
