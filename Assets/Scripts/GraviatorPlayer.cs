@@ -41,7 +41,13 @@ public class GraviatorPlayer : MonoBehaviour {
 
     public GameObject PistolBulletPrefab;
 
+    AudioSource jetAud;
+
     EnergyBar eB;
+
+    public AudioClip hitClip;
+    public AudioSource hitSrc;
+    public AudioClip deathClip;
 
 
     public bool Invulnerable = false;
@@ -51,6 +57,7 @@ public class GraviatorPlayer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rbd = GetComponent<Rigidbody2D>();
+        jetAud = GetComponent<AudioSource>();
 
         foreach (SpriteRenderer s in characterSprites)
         {
@@ -100,7 +107,7 @@ public class GraviatorPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         if (!Dead)
         {
 
@@ -113,6 +120,7 @@ public class GraviatorPlayer : MonoBehaviour {
             {
                 Thrust(thrustMag);
                 jetTrail.SetThrust(thrustMag);
+                jetAud.volume = thrustMag;
             }
 
             if (thrustMag < 0.1)
@@ -173,6 +181,7 @@ public class GraviatorPlayer : MonoBehaviour {
 
         currentFuel = Mathf.Clamp(currentFuel, 0, MaxFuel);
 
+        SoundFXManager.playSingleFX(hitSrc, hitClip);
 
     }
 
@@ -199,6 +208,8 @@ public class GraviatorPlayer : MonoBehaviour {
            }, 2.0f);
 
             ScoreManager.Instance.RemoveDeathScore(PlayerIndex);
+
+            SoundFXManager.playSingleFX(hitSrc, deathClip);
             
         }
 

@@ -12,6 +12,10 @@ public class PistolFireable : MonoBehaviour, IFireable {
 
     int PlayerIndex;
 
+    AudioSource shootAud;
+
+    public AudioClip[] shootSounds;
+
     public void Initialize(OnFireableExpiredDelegate cb, Transform firePoint, int PlayerIndex)
     {
         this.transform.parent = firePoint;
@@ -26,6 +30,8 @@ public class PistolFireable : MonoBehaviour, IFireable {
         Rigidbody2D rbd = bullet.GetComponent<Rigidbody2D>();
         bullet.layer = LayerMask.NameToLayer("Bullet_Player"+(PlayerIndex+1));
         rbd.velocity = this.transform.up * shootVelocity;
+
+        SoundFXManager.RandomizeSfx(shootAud, shootSounds);
 
         PistolBullet mb = bullet.GetComponent<PistolBullet>();
         if (mb != null) {
@@ -43,7 +49,7 @@ public class PistolFireable : MonoBehaviour, IFireable {
 
     // Use this for initialization
     void Start () {
-		
+        shootAud = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame

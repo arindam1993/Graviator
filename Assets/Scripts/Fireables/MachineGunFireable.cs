@@ -19,6 +19,10 @@ public class MachineGunFireable : MonoBehaviour, IFireable
     float delayBetweenShots = .2f;
     float timeSinceLastShot = 0;
 
+
+    public AudioClip[] shootSounds;
+    AudioSource shootAud;
+
     public void Initialize(OnFireableExpiredDelegate cb, Transform firePoint, int PlayerIndex)
     {
         this.transform.parent = firePoint;
@@ -53,6 +57,7 @@ public class MachineGunFireable : MonoBehaviour, IFireable
         bullet.layer = LayerMask.NameToLayer("Bullet_Player" + (PlayerIndex + 1));
         rbd.velocity = this.transform.up * shootVelocity;
 
+        SoundFXManager.RandomizeSfx(shootAud, shootSounds);
         MachineGunBullet mb = bullet.GetComponent<MachineGunBullet>();
         if (mb != null) {
             mb.trail.startColor = PlayerColorDict.GetPlayerColor(PlayerIndex);
@@ -66,7 +71,7 @@ public class MachineGunFireable : MonoBehaviour, IFireable
 
     void Start()
     {
-
+        shootAud = GetComponent<AudioSource>();
     }
 
     void Update()
