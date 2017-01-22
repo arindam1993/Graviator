@@ -111,6 +111,11 @@ public class GraviatorPlayer : MonoBehaviour {
         currentFuel += FuelRegenRate * Time.deltaTime;
     }
 
+    public void TakeHit(Vector2 incident, float intensity)
+    {
+        rbd.AddForce(incident * intensity , ForceMode2D.Impulse);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

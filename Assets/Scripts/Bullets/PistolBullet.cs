@@ -9,6 +9,8 @@ public class PistolBullet : MonoBehaviour {
 
     public TrailRenderer trail;
     public GameObject sprite;
+    public ParticleSystem pS;
+    public float KnockbackIntensity;
    
 
     bool otherDestroyed;
@@ -33,6 +35,7 @@ public class PistolBullet : MonoBehaviour {
 
         sprite.SetActive(true);
         GetComponent<CircleCollider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
     }
 
@@ -40,11 +43,29 @@ public class PistolBullet : MonoBehaviour {
     {
         sprite.SetActive(false);
         GetComponent<CircleCollider2D>().enabled = false;
+        pS.Play();
+
+        Rigidbody2D rbd = GetComponent<Rigidbody2D>();
+        
 
         UnityTimer.Instance.CallAfterDelay(() =>
         {
             EasyObjectPool.instance.ReturnObjectToPool(this.gameObject);
         }, 1.0f);
+
+        if( collision.gameObject.tag == "Player")
+        {
+            GraviatorPlayer player = collision.gameObject.GetComponent<GraviatorPlayer>();
+            player.TakeHit(
+                    Vector3.Normalize(rbd.velocity),
+                    KnockbackIntensity
+                );
+        }
+
+        rbd.velocity = Vector2.zero;
+        rbd.angularVelocity = 0;
+        rbd.bodyType = RigidbodyType2D.Static;
+
 
     }
 
