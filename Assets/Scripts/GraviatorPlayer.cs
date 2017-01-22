@@ -73,7 +73,10 @@ public class GraviatorPlayer : MonoBehaviour {
 
         eB.Show();
 
-	}
+        gun.OnFireableExpired();
+
+
+    }
 
 
     private void Reset()
